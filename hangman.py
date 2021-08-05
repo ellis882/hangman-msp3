@@ -56,6 +56,12 @@ def play(secret_word):
 
         # if player already guessed a specific word that is not the secret word, or input is not the secret word, you lose one live.                   
         elif len(guess) == len(secret_word) and guess.isalpha():
+            if guess in guessed_words:
+                print(f"You already guessed that word, {guess}")
+            elif guess != secret_word:
+                print(f"{guess} is not the secret word.")
+                lives -= 1
+                guessed_words.append(guess)
 
         else:
             # if input is not a letter from alphabet or word that is not the same length of secret word
