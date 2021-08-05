@@ -75,6 +75,10 @@ def play(secret_word):
         print("\n")
         print(f"You have {lives}, lives")
         print("\n")
+    if gameWon:
+        print("WELL DONE YOU ARE A CHAMPION!")
+    else:
+        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'")    
 
 
 
