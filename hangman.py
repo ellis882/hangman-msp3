@@ -2,11 +2,20 @@ import random
 from words import word_list
 
 def get_word():
-    # take random secret word from word_list from words file
+    """
+    take random secret word from word_list
+    """
     secret_word = random.choice(word_list)
     return secret_word.upper()
 
-def play(secret_word):    
+def play(secret_word):
+    """
+    create while loop to run the game until the secret word is guessed
+    or player runs out of lives.
+    Also contains three possible conditions each based on different input.
+    Guessing a letter, word or input that is not a letter or word of
+    same length as secret word.
+    """    
     reveal = "_" * len(secret_word)
     gameWon = False
     guessed_letters = []
@@ -29,21 +38,17 @@ def play(secret_word):
     print(f"SECRET WORD: {reveal}")
     print("\n")
     print(f"You have {lives} lives")
-    print("\n")
-    # runs either until secret word is guessed or player lost lives
-    while gameWon == False and lives > 0:
-        guess = input("Guess a letter or word: ").upper()
-        # if letter alphabet already is guessed
+    print("\n")    
+    while not gameWon and lives > 0:
+        guess = input("Guess a letter or word: ").upper()        
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
-                print(f"You already guessed the letter {guess}")
-            # letter not in secret word, lose one live    
+                print(f"You already guessed the letter {guess}.")               
             elif guess not in secret_word:
                 print(f"{guess} is not in the secret word.")
                 lives -= 1
                 guessed_letters.append(guess)
-            else:
-                # list comprehension to see if guess is in secret word
+            else:                
                 print(f"Good job, {guess} is in the secret word!")
                 guessed_letters.append(guess)
                 word_as_list = list(reveal)
@@ -51,27 +56,20 @@ def play(secret_word):
                 # reveal all occurences of guess
                 for index in indices:
                     word_as_list[index] = guess
-                reveal = "".join(word_as_list)
-                # if guessed all letters you win
+                reveal = "".join(word_as_list)                
                 if "_" not in reveal:
-                    gameWon = True    
-
-        # statements for if word guess is wrong                   
+                    gameWon = True                        
         elif len(guess) == len(secret_word) and guess.isalpha():
             if guess in guessed_words:
-                print(f"You already guessed that word, {guess}")
+                print(f"You already guessed that word, {guess}.")
             elif guess != secret_word:
                 print(f"{guess} is not the secret word.")
                 lives -= 1
-                guessed_words.append(guess)
-            # or you guessed the secret word and win     
+                guessed_words.append(guess)               
             else:
                 gameWon = True
-                reveal = secret_word    
-
-        else:
-            # input is not a letter from alphabet
-            # input is not same length as secret word
+                reveal = secret_word
+        else:            
             print("Not a valid guess. Please try again!")
         print(display_hangman(lives))
         print(f"SECRET WORD: {reveal}")
@@ -81,12 +79,13 @@ def play(secret_word):
     if gameWon:
         print("WELL DONE YOU ARE A CHAMPION!")
     else:
-        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'")    
+        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")    
 
 
 def display_hangman(lives):
-    # index stage that corresponts with the number of lives player have
-
+    """
+    index stage that corresponts with the number of lives player have
+    """
     stages = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
@@ -161,10 +160,11 @@ def display_hangman(lives):
     return stages[lives]
 
 def main():
-    # to run the game once
+    """
+    to run game once and if want to continue or not
+    """    
     secret_word = get_word()
-    play(secret_word)
-    # to play again if you type y    
+    play(secret_word)       
     while input("Do You want to Play Again? (Y/N) ").upper() == "Y":
         secret_word = get_word()
         play(secret_word)
