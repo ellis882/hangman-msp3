@@ -62,6 +62,10 @@ def play(secret_word):
                 print(f"{guess} is not the secret word.")
                 lives -= 1
                 guessed_words.append(guess)
+            # or you guessed the secret word and win     
+            else:
+                gameWon = True
+                reveal = secret_word    
 
         else:
             # if input is not a letter from alphabet or word that is not the same length of secret word
