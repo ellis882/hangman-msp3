@@ -33,45 +33,46 @@ def play(secret_word):
     print("in the correct position.")
     print("You have 6 lives. Best of Luck!")
     print("--------------------------------------------------")
-    name = input("Please Enter Your Name: ")    
+    name = input("Please Enter Your Name: ")
     print(f"Hello {name}, Let's play Hangman....")
-    print("---------------------------------------------------\n")        
+    print("---------------------------------------------------")
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
     print("\n")
     print(f"You have {lives} lives")
-    print("\n")    
+    print("\n")
     while not gameWon and lives > 0:
-        guess = input("Guess a letter or word: ").upper()        
+        guess = input("Guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
-                print(f"You already guessed the letter {guess}.")               
+                print(f"You already guessed the letter {guess}.")
             elif guess not in secret_word:
                 print(f"{guess} is not in the secret word.")
                 lives -= 1
                 guessed_letters.append(guess)
-            else:                
+            else:
                 print(f"Good job, {guess} is in the secret word!")
                 guessed_letters.append(guess)
                 word_as_list = list(reveal)
-                indices = [i for i, letter in enumerate(secret_word) if letter == guess]     
+                indices = [i for i, letter in enumerate(secret_word)
+                           if letter == guess]
                 # reveal all occurences of guess
                 for index in indices:
                     word_as_list[index] = guess
-                reveal = "".join(word_as_list)                
+                reveal = "".join(word_as_list)
                 if "_" not in reveal:
-                    gameWon = True                        
+                    gameWon = True
         elif len(guess) == len(secret_word) and guess.isalpha():
             if guess in guessed_words:
                 print(f"You already guessed that word, {guess}.")
             elif guess != secret_word:
                 print(f"{guess} is not the secret word.")
                 lives -= 1
-                guessed_words.append(guess)               
+                guessed_words.append(guess)
             else:
                 gameWon = True
-                reveal = secret_word                
-        else:            
+                reveal = secret_word
+        else:
             print("Not a valid guess. Please try again!")
         print(display_hangman(lives))
         print(f"SECRET WORD: {reveal}")
@@ -81,7 +82,7 @@ def play(secret_word):
     if gameWon:
         print("WELL DONE YOU ARE A CHAMPION!")
     else:
-        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")    
+        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")
 
 
 def display_hangman(lives):
@@ -105,9 +106,9 @@ def display_hangman(lives):
                    |      O
                    |     \\|/
                    |      |
-                   |     / 
+                   |     /
                    -
-                """,
+                   """,
                 # head, torso, and both arms
                 """
                    --------
@@ -115,9 +116,9 @@ def display_hangman(lives):
                    |      O
                    |     \\|/
                    |      |
-                   |      
+                   |
                    -
-                """,
+                   """,
                 # head, torso, and one arm
                 """
                    --------
@@ -125,9 +126,9 @@ def display_hangman(lives):
                    |      O
                    |     \\|
                    |      |
-                   |     
+                   |
                    -
-                """,
+                   """,
                 # head and torso
                 """
                    --------
@@ -135,7 +136,7 @@ def display_hangman(lives):
                    |      O
                    |      |
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head
@@ -143,19 +144,19 @@ def display_hangman(lives):
                    --------
                    |      |
                    |      O
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
                    -
                 """,
                 # initial empty state
                 """
                    --------
                    |      |
-                   |      
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
+                   |
                    -
                 """
     ]
@@ -165,14 +166,14 @@ def display_hangman(lives):
 def main():
     """
     to run game once and if want to continue or not
-    """    
+    """
     secret_word = get_word()
-    play(secret_word)       
+    play(secret_word)
     while input("Do You want to Play Again? (Y/N) ").upper() == "Y":
         secret_word = get_word()
         play(secret_word)
 
 
 # code frame so that program will run script on command line
-if __name__ == "__main__":    
+if __name__ == "__main__":
     main()

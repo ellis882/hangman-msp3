@@ -2,7 +2,8 @@
 
 The classic game of Hangman is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
-Hangman is a popular word guessing game where the player attempts to build a missing word by guessing one letter at a time.
+
+Hangman is a popular word guessing game where the player attempts to build a missing word by guessing one letter or a word at a time.
 After a certain number of incorrect guesses, the game ends and the player loses.
 The game also ends if the player correctly identifies all the letters of the missing word.
 
@@ -44,6 +45,10 @@ You win if you can guess the secret word before the hangman is complete.
 - number of lives you see in text and graphics.
     - the text line update how many lives you have left.
     - the graphics update bodyparts(head, torso, both arms, and both legs) until hangman is complete.
+
+- if you guess the secret word you win
+
+- if you run out of lives you lose
 
 - input validation and error-checking.
     - you cannot enter the same guess twice.
