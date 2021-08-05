@@ -176,5 +176,3 @@ def main():
 # code frame so that program will run script on command line
 if __name__ == "__main__":    
     main()
-
-
