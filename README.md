@@ -1,45 +1,50 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Classic game of HANGMAN
 
-Welcome ellis882,
+The classic game of Hangman is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+Hangman is a popular word guessing game where the player attempts to build a missing word by guessing one letter at a time.
+After a certain number of incorrect guesses, the game ends and the player loses.
+The game also ends if the player correctly identifies all the letters of the missing word.
 
-## Gitpod Reminders
+The live version of my project is [Here]()
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+---
 
-`python3 -m http.server`
+## 1. How To Play
 
-A blue button should appear to click: *Make Public*,
+Hangman is a paper and pencil guessing game for two or more players. If you want you can read more about it on [wikipedia](https://en.wikipedia.org/wiki/Hangman_(game)).
 
-Another blue button should appear to click: *Open Browser*.
+In this version the player has to quess the secret word that is randomly picked from a word list.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The secret word is represented by a row of underscores.
 
-A blue button should appear to click: *Make Public*,
+You are asked to guess a letter and you have 6 lives.
 
-Another blue button should appear to click: *Open Browser*.
+If you guess a letter or word that is in the secret word the letter will be revealed.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+If you guess a letter or word that is not in the secret word you lose 1 live.
 
-## Updates Since The Instructional Video
+The graphics of the hangman corresponts with the number of lives the player have.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+You win if you can guess the secret word before the hangman is complete.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+---
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## 2. Features
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### 2.1. Existing features
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- random secret word from word list.
+    - length of secret word is revealed with underscores.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- you are asked to guess a letter or word.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- number of lives you see in text and graphics.
+    - the text line update how many lives you have left.
+    - the graphics add bodyparts(head, torso, both arms, and both legs) until hangman is complete.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- input validation and error-checking.
+    - you cannot enter the same guess twice.
+    - you cannot enter input that is not a letter or word of correct length of secret word.
 
---------
-
-Happy coding!
+- at the end of the game you are asked to play again? (Y/N).
