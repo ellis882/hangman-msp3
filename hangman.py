@@ -1,12 +1,14 @@
 import random
 from words import word_list
 
+
 def get_word():
     """
     take random secret word from word_list
     """
     secret_word = random.choice(word_list)
     return secret_word.upper()
+
 
 def play(secret_word):
     """
@@ -15,14 +17,14 @@ def play(secret_word):
     Also contains three possible conditions each based on different input.
     Guessing a letter, word or input that is not a letter or word of
     same length as secret word.
-    """    
+    """
     reveal = "_" * len(secret_word)
     gameWon = False
     guessed_letters = []
     guessed_words = []
     lives = 6
     # welcoming the player
-    print("-------------------------------------------------- ")
+    print("--------------------------------------------------")
     print("Welcome to the classic game of Hangman!")
     print("The secret word to guess is represented")
     print("by a row of underscores.")
@@ -30,10 +32,10 @@ def play(secret_word):
     print("in the secret word, the script writes it")
     print("in the correct position.")
     print("You have 6 lives. Best of Luck!")
-    print("-------------------------------------------------- ")
+    print("--------------------------------------------------")
     name = input("Please Enter Your Name: ")    
     print(f"Hello {name}, Let's play Hangman....")
-    print("--------------------------------------------------- \n")        
+    print("---------------------------------------------------\n")        
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
     print("\n")
@@ -52,7 +54,7 @@ def play(secret_word):
                 print(f"Good job, {guess} is in the secret word!")
                 guessed_letters.append(guess)
                 word_as_list = list(reveal)
-                indices = [i for i, letter in enumerate(secret_word) if letter == guess]
+                indices = [i for i, letter in enumerate(secret_word) if letter == guess]     
                 # reveal all occurences of guess
                 for index in indices:
                     word_as_list[index] = guess
@@ -68,7 +70,7 @@ def play(secret_word):
                 guessed_words.append(guess)               
             else:
                 gameWon = True
-                reveal = secret_word
+                reveal = secret_word                
         else:            
             print("Not a valid guess. Please try again!")
         print(display_hangman(lives))
@@ -158,6 +160,7 @@ def display_hangman(lives):
                 """
     ]
     return stages[lives]
+
 
 def main():
     """
