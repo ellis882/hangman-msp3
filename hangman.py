@@ -36,6 +36,23 @@ def play(secret_word):
         guess = input("Guess a letter or word: ").upper()
         # if letter in alphabet is already guessed, or is not in the secret word, you lose one live
         if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                print(f"You already guessed the letter {guess}")
+            elif guess not in secret_word:
+                print(f"{guess} is not in the secret word.")
+                lives -= 1
+                guessed_letters.append(guess)
+            else:
+                # use list comprehension to see if guess is in secret word, and reveal all occurences of guess. If guessed all letters you win
+                print(f"Good job, {guess} is in the secret word!")
+                guessed_letters.append(guess)
+                word_as_list = list(reveal)
+                indices = [i for i, letter in enumerate(secret_word) if letter == guess]
+                for index in indices:
+                    word_as_list[index] = guess
+                reveal = "".join(word_as_list)
+                if "_" not in reveal:
+                    gameWon = True    
 
         # if player already guessed a specific word that is not the secret word, or input is not the secret word, you lose one live.                   
         elif len(guess) == len(secret_word) and guess.isalpha():
