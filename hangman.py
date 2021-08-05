@@ -81,9 +81,6 @@ def play(secret_word):
         print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'")    
 
 
-
-
-
 def display_hangman(lives):
     # index of each stage that corresponts with the number of lives that the player have
 
@@ -158,4 +155,20 @@ def display_hangman(lives):
                    -
                 """
     ]
-    return stages[lives]  
+    return stages[lives]
+
+def main():
+    # to run the game once
+    secret_word = get_word()
+    play(secret_word)
+    # to play again if you type y    
+    while input("Do You want to Play Again? (Y/N) ").upper() == "Y":
+        secret_word = get_word()
+        play(secret_word)
+
+
+# code frame so that program will run script on command line
+if __name__ == "__main__":    
+    main()
+print("-------------------------------------------------- \n")
+
