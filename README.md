@@ -102,16 +102,16 @@ You win if you can guess the secret word before the hangman is complete.
 #### Solved Bugs
 
 - I was getting errors of trailing whitespaces and that some lines were too long.
-    - got rid of the whitespace manualy and made the text shorter
+    - got rid of the whitespace manualy and made the text shorter.
 
 #### Remaining Bugs
 
-- 
+- no remaining bugs
 
 #### Validator Testing
 
 - PEP8.
-    - 
+    - no errors found
 
 ---
 
@@ -132,6 +132,6 @@ You win if you can guess the secret word before the hangman is complete.
 
 - Code Institute for the deployment terminal.
 - YouTube tutorials [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=191s) and [FreeCodeCamp.org](https://www.youtube.com/watch?v=8ext9G7xspg).
-- [Inventwithpython.com](https://inventwithpython.com/invent4thed/chapter7.html)
+- flowchart [Inventwithpython.com](https://inventwithpython.com/invent4thed/chapter7.html).
 
 
