@@ -33,9 +33,13 @@ You win if you can guess the secret word before the hangman is complete.
 
 ## 2. Features
 
+- accepts a user's input
+- performs a task based on the input
+- displays the result in some useful form
+
 ### 2.1. Existing features
 
-- random secret word from word list.
+- takes random secret word from word list.
     - length of secret word is revealed with underscores.
 
 - you are asked to guess a letter or word.
@@ -66,9 +70,14 @@ You win if you can guess the secret word before the hangman is complete.
 
 ## 3. Data Model
 
-- I decided to make 4 functions.
-  The first functions pulls out a word from the list that is stored in a words file.
-  This contains all the words that can be chosen randomly.
+- I had created a [flowchart](flowchart-hangman/hangman-program-flowchart.png) to visualize which steps to take before building   the  game. 
+  This gives you a clear view on where to put the different options in your code.
+  It shows a series of steps as boxes connected with arrows. Each box represents a step and the arrows show the possible next
+  step(s). You can only move from one box to another in the direction of the arrow. You can never go backwards unless there's an arrow going back.
+
+- In the code you will find 4 functions.
+  The first functions pulls out a (secret)word from the list that is stored in a words file.
+  This contains all the words which can be chosen from randomly.
   The second funtions is to display the hangman graphics.
   Both functions come back in the play function.
   For this function i created a while loop to run the game until the secret word is guessed
@@ -77,9 +86,6 @@ You win if you can guess the secret word before the hangman is complete.
   Guessing a letter or word or input that is not a letter or word of the
   same length as the secret word.
   After that i made a main function to run the game and put in the option to play again or not.
-
-- Had made a [flowchart](flowchart-hangman/flowchart-hangman.png) to visualize which steps to take before building the game.
-  This gives you a clear few on where to put the different options in your code. 
 
 ---
 
@@ -96,6 +102,7 @@ You win if you can guess the secret word before the hangman is complete.
 #### Solved Bugs
 
 - I was getting errors of trailing whitespaces and that some lines were too long.
+    - got rid of the whitespace manualy and made the text shorter
 
 #### Remaining Bugs
 
@@ -110,7 +117,7 @@ You win if you can guess the secret word before the hangman is complete.
 
 ## Deployment
 
-- This project was deployed using  Code Institute's mock terminal for Heroku.
+- This project was deployed using Code Institute's mock terminal for Heroku.
 
     - Steps for deployment:
         - Fork or clone this repository.
@@ -124,6 +131,7 @@ You win if you can guess the secret word before the hangman is complete.
 ## Credits
 
 - Code Institute for the deployment terminal.
-- YouTube tutorial [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=191s) and [FreeCodeCamp.org](https://www.youtube.com/watch?v=8ext9G7xspg).
+- YouTube tutorials [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=191s) and [FreeCodeCamp.org](https://www.youtube.com/watch?v=8ext9G7xspg).
+- [Inventwithpython.com](https://inventwithpython.com/invent4thed/chapter7.html)
 
 
