@@ -5,6 +5,7 @@ from words import word_list
 def get_word():
     """
     take random secret word from word_list
+    imported from words file
     """
     secret_word = random.choice(word_list)
     return secret_word.upper()
@@ -33,7 +34,7 @@ def play(secret_word):
     print("in the correct position.")
     print("You have 6 lives. Best of Luck!")
     print("--------------------------------------------------")
-    name = input("Please Enter Your Name: ")
+    name = input("Please Enter Your Name: ").upper()
     print(f"Hello {name}, Let's play Hangman....")
     print("---------------------------------------------------")
     print(display_hangman(lives))
@@ -54,9 +55,10 @@ def play(secret_word):
                 print(f"Good job, {guess} is in the secret word!")
                 guessed_letters.append(guess)
                 word_as_list = list(reveal)
+                # find all indices where guess occurs in secret word
                 indices = [i for i, letter in enumerate(secret_word)
                            if letter == guess]
-                # reveal all occurences of guess
+                # replace each underscores at index with guess
                 for index in indices:
                     word_as_list[index] = guess
                 reveal = "".join(word_as_list)
@@ -80,9 +82,9 @@ def play(secret_word):
         print(f"You have {lives}, lives")
         print("\n")
     if gameWon:
-        print("WELL DONE YOU ARE A CHAMPION!")
+        print(f"WELL DONE {name}, YOU ARE A CHAMPION!")
     else:
-        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")
+        print(f"YOU FAILED {name}! THE SECRET WORD WAS '{secret_word}'.")
 
 
 def display_hangman(lives):
