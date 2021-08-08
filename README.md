@@ -93,7 +93,7 @@ You win if you can guess the secret word before the hangman is complete.
 
 - I have tested this project by doing the following:
 
-    - passed the code through a PEP8 linter.
+    - passed the code through a [PEP8](http://pep8online.com/checkresult) linter.
     - testing with invalid inputs like guessing the same letter and word twice, put a number instead of a letter.
     - tested in my local terminal and the Code Institute Heroku terminal.
 
@@ -110,8 +110,8 @@ You win if you can guess the secret word before the hangman is complete.
 
 #### Validator Testing
 
-- PEP8.
-    - no errors found
+- PEP8
+    - no errors found [pep8 linter](pep8-linter/pep8-linter.png)
 
 ---
 
