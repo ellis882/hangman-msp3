@@ -34,7 +34,7 @@ def play(secret_word):
     print("in the correct position.")
     print("You have 6 lives. Best of Luck!")
     print("--------------------------------------------------")
-    name = input("Please Enter Your Name: ").upper()
+    name = input("Please Enter Your Name: \n").upper()
     print(f"Hello {name}, Let's play Hangman....")
     print("---------------------------------------------------")
     print(display_hangman(lives))
@@ -43,7 +43,7 @@ def play(secret_word):
     print(f"You have {lives} lives")
     print("\n")
     while not gameWon and lives > 0:
-        guess = input("Guess a letter or word: ").upper()
+        guess = input("Guess a letter or word: \n").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 print(f"You already guessed the letter {guess}.")
@@ -171,7 +171,7 @@ def main():
     """
     secret_word = get_word()
     play(secret_word)
-    while input("Do You want to Play Again? (Y/N) ").upper() == "Y":
+    while input("Do You want to Play Again? (Y/N) \n").upper() == "Y":
         secret_word = get_word()
         play(secret_word)
 
