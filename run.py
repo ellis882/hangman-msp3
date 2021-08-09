@@ -2,6 +2,32 @@ import random
 from words import word_list
 
 
+def welcome():
+    # welcoming the player
+    print("--------------------------------------------------")
+    print("Welcome to the classic game of Hangman!")
+    print("The secret word to guess is represented")
+    print("by a row of underscores.")
+    print("If you guess a letter which exists")
+    print("in the secret word, the script writes it")
+    print("in the correct position.")
+    print("You have 6 lives. Best of Luck!")
+    print("--------------------------------------------------")
+
+
+def ask_name():
+    # enter valid name
+    while True:
+        name = input("Please Enter Your Name: \n").upper()
+        if name.isalpha():
+            return name
+        else:
+            print("Please use only letters, try again")
+
+
+name = ask_name()
+
+
 def get_word():
     """
     take random secret word from word_list
@@ -24,18 +50,8 @@ def play(secret_word):
     guessed_letters = []
     guessed_words = []
     lives = 6
-    # welcoming the player
-    print("--------------------------------------------------")
-    print("Welcome to the classic game of Hangman!")
-    print("The secret word to guess is represented")
-    print("by a row of underscores.")
-    print("If you guess a letter which exists")
-    print("in the secret word, the script writes it")
-    print("in the correct position.")
-    print("You have 6 lives. Best of Luck!")
-    print("--------------------------------------------------")
-    name = input("Please Enter Your Name: \n").upper()
-    print(f"Hello {name}, Let's play Hangman....")
+    print("---------------------------------------------------")
+    print(f"Hello {name}, Let's Play Hangman!")
     print("---------------------------------------------------")
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
@@ -169,6 +185,7 @@ def main():
     """
     to run game once and if want to continue or not
     """
+    welcome()
     secret_word = get_word()
     play(secret_word)
     while input("Do You want to Play Again? (Y/N) \n").upper() == "Y":
