@@ -79,7 +79,7 @@ def play(secret_word):
         print(display_hangman(lives))
         print(f"SECRET WORD: {reveal}")
         print("\n")
-        print(f"You have {lives}, lives")
+        print(f"You have {lives}, lives left")
         print("\n")
     if gameWon:
         print(f"WELL DONE {name}, YOU ARE A CHAMPION!")
