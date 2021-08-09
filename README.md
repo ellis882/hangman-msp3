@@ -122,7 +122,7 @@ You win if you can guess the secret word before the hangman is complete.
     - Steps for deployment:
         - Fork or clone this repository.
         - Create a new Heroku app.
-        - Set the buildbacks to Python and NodeJS in that order.
+        - Set the buildpacks to Python and NodeJS in that order.
         - Link the Heroku app to the repository.
         - Click on [Deploy]().
 
