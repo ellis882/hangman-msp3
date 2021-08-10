@@ -2,6 +2,8 @@
 
 The classic game of Hangman is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
+![Hangman](i-am-responsive/i-am-responsive.png)
+
 
 Hangman is a popular word guessing game where the player attempts to build a missing word by guessing one letter or a word at a time.
 After a certain number of incorrect guesses, the game ends and the player loses.
@@ -60,7 +62,8 @@ You win if you can guess the secret word before the hangman is complete.
 
 - at the end of the game you are asked to play again? (Y/N).
     - if type Y the game starts again.
-    - when type anything else you exit the game.
+    - when type N you go to welcome text.
+    - when type anything else you are asked to type only (Y/N).
 
 ### 2.2. Features left to implement in the future 
 
@@ -75,11 +78,13 @@ You win if you can guess the secret word before the hangman is complete.
   It shows a series of steps as boxes connected with arrows. Each box represents a step and the arrows show the possible next
   step(s). You can only move from one box to another in the direction of the arrow. You can never go backwards unless there's an arrow going back.
 
-- In the code you will find 4 functions.
-  The first functions pulls out a (secret)word from the list that is stored in a words file.
-  This contains all the words which can be chosen from randomly.
-  The second funtions is to display the hangman graphics.
-  Both functions come back in the play function.
+- In the code you will find 6 functions.
+  The first function is the welcome text and is just printed text. You will come back there when you don't want to play again.
+  The ask_name function is created to enter a name. It only accepts letters from the alphabet, no numbers.
+  The get_word function pulls out a (secret)word from the list that is stored in a words file.
+  This contains all the words which can be chosen from randomly by the computer.
+  The display_hangman funtion is to display the hangman graphics.
+  These function will come back in the play function.
   For this function i created a while loop to run the game until the secret word is guessed
   or the player runs out of lives.
   It also contains three possible conditions each based on different input.
@@ -103,6 +108,9 @@ You win if you can guess the secret word before the hangman is complete.
 
 - I was getting errors of trailing whitespaces and that some lines were too long.
     - got rid of the whitespace manualy and made the text shorter.
+- In order to put more input validation checking for enter your name(just letters)
+ and if you want to play again or not(you can either choose Y or N) i had add the ask_name functio
+ and had made a while loop in the main function for input validation checking.   
 
 #### Remaining Bugs
 
