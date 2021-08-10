@@ -188,10 +188,9 @@ def main():
     welcome()
     secret_word = get_word()
     play(secret_word)
-
     # to continue or stop the game
     while True:
-        answer = input("Do you want to play again? (Y/N): ").upper()
+        answer = input("Do you want to play again? (Y/N): \n").upper()
         if answer == "Y":
             secret_word = get_word()
             play(secret_word)

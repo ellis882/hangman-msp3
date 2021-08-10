@@ -9,7 +9,7 @@ Hangman is a popular word guessing game where the player attempts to build a mis
 After a certain number of incorrect guesses, the game ends and the player loses.
 The game also ends if the player correctly identifies all the letters of the missing word.
 
-The live version of my project is [Here]().
+The live version of my project is [Here](https://hangman-msp3.herokuapp.com/).
 
 ---
 
@@ -125,14 +125,14 @@ You win if you can guess the secret word before the hangman is complete.
 
 ## Deployment
 
-- This project was deployed using Code Institute's mock terminal for Heroku.
+- This project was deployed using Code Institute's mock terminal for [Heroku](https://www.heroku.com/).
 
     - Steps for deployment:
         - Fork or clone this repository.
         - Create a new Heroku app.
         - Set the buildpacks to Python and NodeJS in that order.
         - Link the Heroku app to the repository.
-        - Click on [Deploy]().
+        - Click on [Deploy](https://hangman-msp3.herokuapp.com/).
 
 ---
 
