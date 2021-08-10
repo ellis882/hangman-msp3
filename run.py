@@ -50,9 +50,9 @@ def play(secret_word):
     guessed_letters = []
     guessed_words = []
     lives = 6
-    print("---------------------------------------------------")
+    print("--------------------------------------------------")
     print(f"Hello {name}, Let's Play Hangman!")
-    print("---------------------------------------------------")
+    print("--------------------------------------------------")
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
     print("\n")
@@ -188,9 +188,19 @@ def main():
     welcome()
     secret_word = get_word()
     play(secret_word)
-    while input("Do You want to Play Again? (Y/N) \n").upper() == "Y":
-        secret_word = get_word()
-        play(secret_word)
+
+    # to continue or stop the game
+    while True:
+        answer = input("Do you want to play again? (Y/N): ").upper()
+        if answer == "Y":
+            secret_word = get_word()
+            play(secret_word)
+            continue
+        elif answer == "N":
+            welcome()
+            break
+        else:
+            print("Enter either (Y/N)")
 
 
 # code frame so that program will run script on command line
