@@ -1,5 +1,11 @@
 import random
 from words import word_list
+import os
+
+
+# Funtion to clear te terminal
+def clear():
+    os.system("clear")
 
 
 def welcome():
@@ -45,7 +51,7 @@ def play(secret_word):
     Guessing a letter, word or input that is not a letter or word of
     same length as secret word.
     """
-    reveal = "_" * len(secret_word)
+    reveal = "-" * len(secret_word)
     gameWon = False
     guessed_letters = []
     guessed_words = []
@@ -78,7 +84,7 @@ def play(secret_word):
                 for index in indices:
                     word_as_list[index] = guess
                 reveal = "".join(word_as_list)
-                if "_" not in reveal:
+                if "-" not in reveal:
                     gameWon = True
         elif len(guess) == len(secret_word) and guess.isalpha():
             if guess in guessed_words:
@@ -196,7 +202,8 @@ def main():
             play(secret_word)
             continue
         elif answer == "N":
-            welcome()
+            clear()
+            print("Thanks for Playing! Goodbye")
             break
         else:
             print("Enter either (Y/N)")
