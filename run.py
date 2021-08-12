@@ -100,7 +100,7 @@ def play(secret_word):
     if gameWon:
         print("WELL DONE, YOU ARE A CHAMPION!")
     else:
-        print("YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")
+        print(f"YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")
 
 
 def display_hangman(lives):
@@ -203,7 +203,7 @@ if __name__ == "__main__":
 
         # Handling the player category choice
         try:
-            choice = int(input("Enter your choice = "))
+            choice = int(input("Enter your choice = \n"))
         except ValueError:
             clear()
             print("Wrong choice!!! Try again")
