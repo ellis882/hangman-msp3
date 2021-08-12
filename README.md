@@ -19,7 +19,7 @@ Hangman is a paper and pencil guessing game for two or more players. If you want
 
 In this version the player has to quess the secret word that is randomly picked from a word list.
 
-The secret word is represented by a row of underscores.
+The secret word is represented by a row of dashes.
 
 You are asked to guess a letter and you have 6 lives.
 
@@ -60,10 +60,10 @@ You win if you can guess the secret word before the hangman is complete.
     - you cannot enter the same guess twice.
     - you cannot enter input that is not a letter or word of correct length of secret word.
 
-- at the end of the game you are asked to play again? (Y/N).
-    - if type Y the game starts again.
-    - when type N you go to welcome text.
-    - when type anything else you are asked to type only (Y/N).
+- the game starts with a menu to Start, Continue or Quit.
+    - if you choose the first option the game starts and you should enter your name and play.
+    - when you choose the second you can continue to play and you don't have to enter your name.
+    - when choose the third option you quit the game.
 
 ### 2.2. Features left to implement in the future 
 
@@ -73,24 +73,19 @@ You win if you can guess the secret word before the hangman is complete.
 
 ## 3. Data Model
 
-- I had created a [flowchart](flowchart-hangman/hangman-program-flowchart.png) to visualize which steps to take before building   the  game. 
+- I had created a [flowchart](flowchart-hangman/hangman-program-flowchart.png) to visualize which steps to take before building the game. 
   This gives you a clear view on where to put the different options in your code.
   It shows a series of steps as boxes connected with arrows. Each box represents a step and the arrows show the possible next
   step(s). You can only move from one box to another in the direction of the arrow. You can never go backwards unless there's an arrow going back.
+  This data model was my starting point. In the end i had made some changes to solve some issues. I had made a game menu to start and always come back to. This to create a better players experience.
 
-- In the code you will find 6 functions.
-  The first function is the welcome text and is just printed text. You will come back there when you don't want to play again.
-  The ask_name function is created to enter a name. It only accepts letters from the alphabet, no numbers.
-  The get_word function pulls out a (secret)word from the list that is stored in a words file.
-  This contains all the words which can be chosen from randomly by the computer.
-  The display_hangman funtion is to display the hangman graphics.
-  These function will come back in the play function.
-  For this function i created a while loop to run the game until the secret word is guessed
-  or the player runs out of lives.
-  It also contains three possible conditions each based on different input.
-  Guessing a letter or word or input that is not a letter or word of the
-  same length as the secret word.
-  After that i made a main function to run the game and put in the option to play again or not.
+- The hangman game starts and ends with a 'game menu'. In this way the player can always make a choice. You can either Start, Continue or Quit and you come always back  to it. This makes the experience nicer.
+- I had made four important functions for this game.
+- The welcome function to welcome the player and to explain the game. Here you also must enter your name.
+- The get_word function pulls out a (secret)word from the list that is stored in a words file. This contains all the words which can be chosen from randomly by the computer.
+- The display_hangman function for the hangman graphics, to display the hangman. 
+- These function will come back in the play function. For this function i created a while loop to run the game until the secret word is guessed
+  or the player runs out of lives. It also contains three possible conditions each based on different input. Guessing a letter or word or input that is not a letter or word of the same length as the secret word. After that i made a code frame to run the game and put in the game menu to always come back to. 
 
 ---
 
@@ -109,8 +104,8 @@ You win if you can guess the secret word before the hangman is complete.
 - I was getting errors of trailing whitespaces and that some lines were too long.
     - got rid of the whitespace manualy and made the text shorter.
 - In order to put more input validation checking for enter your name(just letters)
- and if you want to play again or not(you can either choose Y or N) i had add the ask_name function
- and had made a while loop in the main function for input validation checking.   
+ and if you want to play again or not(option 2 or 3) i had add the welcome function and a game menu
+- First i had a seperate function for ask_name and welcome and in the a main function i had put the choice to play again. But to come back to the start where you have to enter your name it did not worked in a while loop. So i created a game menu to start from with three option. Namely to Start, Continue or to Quit. To do that i had put the ask_name in the welcome function. That had solved the problem.
 
 #### Remaining Bugs
 
@@ -140,6 +135,7 @@ You win if you can guess the secret word before the hangman is complete.
 
 - Code Institute for the deployment terminal.
 - YouTube tutorials [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=191s) and [FreeCodeCamp.org](https://www.youtube.com/watch?v=8ext9G7xspg).
+- [askpython](https://www.askpython.com/python/examples/hangman-game-in-python)
 - flowchart [Inventwithpython.com](https://inventwithpython.com/invent4thed/chapter7.html).
 
 
