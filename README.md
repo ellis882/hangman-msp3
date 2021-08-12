@@ -109,7 +109,7 @@ You win if you can guess the secret word before the hangman is complete.
 - I was getting errors of trailing whitespaces and that some lines were too long.
     - got rid of the whitespace manualy and made the text shorter.
 - In order to put more input validation checking for enter your name(just letters)
- and if you want to play again or not(you can either choose Y or N) i had add the ask_name functio
+ and if you want to play again or not(you can either choose Y or N) i had add the ask_name function
  and had made a while loop in the main function for input validation checking.   
 
 #### Remaining Bugs
