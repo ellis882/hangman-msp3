@@ -45,14 +45,14 @@ def play(secret_word):
     Guessing a letter, word or input that is not a letter or word of
     same length as secret word.
     """
-    reveal = "_" * len(secret_word)
+    reveal = "-" * len(secret_word)
     gameWon = False
     guessed_letters = []
     guessed_words = []
     lives = 6
-    print("--------------------------------------------------")
+    print("----------------------------------------------")
     print("Let's Play Hangman!")
-    print("--------------------------------------------------")
+    print("----------------------------------------------")
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
     print("\n")
@@ -78,7 +78,7 @@ def play(secret_word):
                 for index in indices:
                     word_as_list[index] = guess
                 reveal = "".join(word_as_list)
-                if "_" not in reveal:
+                if "-" not in reveal:
                     gameWon = True
         elif len(guess) == len(secret_word) and guess.isalpha():
             if guess in guessed_words:
@@ -208,6 +208,7 @@ if __name__ == "__main__":
             clear()
             print("Wrong choice!!! Try again")
             continue
+
         # Sanity checks for input
         if choice > len(topics)+1:
             clear()
