@@ -1,31 +1,31 @@
 import random
 from words import word_list
+import os
+
+
+# Funtion to clear te terminal
+def clear():
+    os.system("clear")
 
 
 def welcome():
-    # welcoming the player
-    print("--------------------------------------------------")
-    print("Welcome to the classic game of Hangman!")
-    print("The secret word to guess is represented")
-    print("by a row of underscores.")
-    print("If you guess a letter which exists")
-    print("in the secret word, the script writes it")
-    print("in the correct position.")
-    print("You have 6 lives. Best of Luck!")
-    print("--------------------------------------------------")
+    # ask for players name
+    print()
+    print("Welcome to the Classic Game of Hangman!")
+    name = input("Please, Enter Your Name: \n").upper()
+    print()
 
-
-def ask_name():
-    # enter valid name
-    while True:
-        name = input("Please Enter Your Name: \n").upper()
-        if name.isalpha():
-            return name
-        else:
-            print("Please use only letters, try again")
-
-
-name = ask_name()
+    if name.isalpha() is True:
+        print("----------------------------------------------")
+        print(f"Hi {name}! Glad to have you here!")
+        print("The secret word to guess is represented")
+        print("by a row of dashes. If you guess a letter")
+        print("which exists in the secret word,")
+        print("the script writes it in the correct position.")
+        print("You have 6 lives. Best of Luck!")
+        print("----------------------------------------------")
+    else:
+        print("Please use only letters, try again ")
 
 
 def get_word():
@@ -51,7 +51,7 @@ def play(secret_word):
     guessed_words = []
     lives = 6
     print("--------------------------------------------------")
-    print(f"Hello {name}, Let's Play Hangman!")
+    print("Let's Play Hangman!")
     print("--------------------------------------------------")
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
@@ -98,9 +98,9 @@ def play(secret_word):
         print(f"You have {lives}, lives left")
         print("\n")
     if gameWon:
-        print(f"WELL DONE {name}, YOU ARE A CHAMPION!")
+        print("WELL DONE, YOU ARE A CHAMPION!")
     else:
-        print(f"YOU FAILED {name}! THE SECRET WORD WAS '{secret_word}'.")
+        print("YOU FAILED! THE SECRET WORD WAS '{secret_word}'.")
 
 
 def display_hangman(lives):
@@ -181,27 +181,52 @@ def display_hangman(lives):
     return stages[lives]
 
 
-def main():
-    """
-    to run game once and if want to continue or not
-    """
-    welcome()
-    secret_word = get_word()
-    play(secret_word)
-    # to continue or stop the game
-    while True:
-        answer = input("Do you want to play again? (Y/N): \n").upper()
-        if answer == "Y":
-            secret_word = get_word()
-            play(secret_word)
-            continue
-        elif answer == "N":
-            welcome()
-            break
-        else:
-            print("Enter either (Y/N)")
-
-
 # code frame so that program will run script on command line
 if __name__ == "__main__":
-    main()
+    clear()
+
+    # Types of categories
+    topics = {1: "Start Game", 2: "Continue to Play"}
+
+    # The GAME LOOP
+    while True:
+
+        # Printing the game menu
+        print()
+        print("----------------------------------------------")
+        print("\t\tGAME MENU")
+        print("----------------------------------------------")
+        for key in topics:
+            print("Press", key, "to", topics[key])
+        print("Press", len(topics)+1, "to Quit")
+        print()
+
+        # Handling the player category choice
+        try:
+            choice = int(input("Enter your choice = "))
+        except ValueError:
+            clear()
+            print("Wrong choice!!! Try again")
+            continue
+        # Sanity checks for input
+        if choice > len(topics)+1:
+            clear()
+            print("Not an Option!!! Try again.")
+            continue
+
+        # The EXIT choice
+        elif choice == len(topics)+1:
+            print()
+            print("Thank you for playing!")
+            break
+
+        # The topic chosen
+        chosen_topic = topics[choice]
+
+        if chosen_topic == "Start Game":
+            welcome()
+            secret_word = get_word()
+            play(secret_word)
+        if chosen_topic == "Continue to Play":
+            secret_word = get_word()
+            play(secret_word)
