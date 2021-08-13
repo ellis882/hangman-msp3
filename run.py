@@ -12,20 +12,20 @@ def welcome():
     # ask for players name
     print()
     print("Welcome to the Classic Game of Hangman!")
-    name = input("Please, Enter Your Name: \n").upper()
-    print()
-
-    if name.isalpha() is True:
-        print("----------------------------------------------")
-        print(f"Hi {name}! Glad to have you here!")
-        print("The secret word to guess is represented")
-        print("by a row of dashes. If you guess a letter")
-        print("which exists in the secret word,")
-        print("the script writes it in the correct position.")
-        print("You have 6 lives. Best of Luck!")
-        print("----------------------------------------------")
-    else:
-        print("Please use only letters, try again ")
+    while True:
+        name = input("Enter Your Name: \n").upper()
+        if name.isalpha():
+            print("----------------------------------------------")
+            print(f"Hi {name}! Glad to have you here!")
+            print("The secret word to guess is represented")
+            print("by a row of dashes. If you guess a letter")
+            print("which exists in the secret word,")
+            print("the script writes it in the correct position.")
+            print("You have 6 lives. Best of Luck!")
+            print("----------------------------------------------")
+            return name
+        else:
+            print("Please use only letters, try again ")
 
 
 def get_word():
