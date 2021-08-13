@@ -61,8 +61,8 @@ You win if you can guess the secret word before the hangman is complete.
     - you cannot enter input that is not a letter or word of correct length of secret word.
 
 - the game starts with a menu to Start, Continue or Quit.
-    - if you choose the first option the game starts and you should enter your name and play.
-    - when you choose the second you can continue to play and you don't have to enter your name.
+    - if you choose the first option the game starts and will be explained and you should enter your name and play.
+    - when you choose the second option you can continue to play and you don't have to enter your name.
     - when choose the third option you quit the game.
 
 ### 2.2. Features left to implement in the future 
@@ -84,7 +84,7 @@ You win if you can guess the secret word before the hangman is complete.
 - The welcome function to welcome the player and to explain the game. Here you also must enter your name.
 - The get_word function pulls out a (secret)word from the list that is stored in a words file. This contains all the words which can be chosen from randomly by the computer.
 - The display_hangman function for the hangman graphics, to display the hangman. 
-- These function will come back in the play function. For this function i created a while loop to run the game until the secret word is guessed
+- These functions will come back in the play function. For this function i created a while loop to run the game until the secret word is guessed
   or the player runs out of lives. It also contains three possible conditions each based on different input. Guessing a letter or word or input that is not a letter or word of the same length as the secret word. After that i made a code frame to run the game and put in the game menu to always come back to. 
 
 ---
@@ -93,7 +93,7 @@ You win if you can guess the secret word before the hangman is complete.
 
 - I have tested this project by doing the following:
 
-    - passed the code through a [PEP8](http://pep8online.com/checkresult) linter.
+    - passed the code through a [PEP8](http://pep8online.com/) linter.
     - testing with invalid inputs like guessing the same letter and word twice, put a number instead of a letter.
     - tested in my local terminal and the Code Institute Heroku terminal.
 
@@ -104,8 +104,9 @@ You win if you can guess the secret word before the hangman is complete.
 - I was getting errors of trailing whitespaces and that some lines were too long.
     - got rid of the whitespace manualy and made the text shorter.
 - In order to put more input validation checking for enter your name(just letters)
- and if you want to play again or not(option 2 or 3) i had add the welcome function and a game menu
-- First i had a seperate function for ask_name and welcome and in the a main function i had put the choice to play again. But to come back to the start where you have to enter your name it did not worked in a while loop. So i created a game menu to start from with three option. Namely to Start, Continue or to Quit. To do that i had put the ask_name in the welcome function. That had solved the problem.
+ and if you want to play again or not(option 2 or 3) i had add the welcome function and a game menu.
+- Problem was that when you finish the game you want to go back to the enter your name part(starting point) and from there start a new game with a (different) name and welcome part or turn of the computer.
+    - First i had a different functions for ask_name and welcome and in the main function i had put the choice to play again or not. But to come back to the startscreen when you choose the option to not play again, where you have to enter your name again and start a new game , this did not worked in just a while loop in the main function. i could not get back to enter your name and start a new game with the welcome(only with the old name that was entered) So i created a game menu to start from with three options. Namely to Start, Continue or to Quit. To do that i had put the ask_name in the welcome function. That had solved the problem.
 
 #### Remaining Bugs
 
@@ -114,7 +115,7 @@ You win if you can guess the secret word before the hangman is complete.
 #### Validator Testing
 
 - PEP8
-    - no errors found [pep8 linter](pep8-linter/pep8-linter.png)
+    - no errors found [pep8 linter](pep8-linter/pep8-onlinechecker.png)
 
 ---
 
