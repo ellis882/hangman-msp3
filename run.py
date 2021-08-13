@@ -11,7 +11,7 @@ def clear():
 def welcome():
     # ask for players name
     print()
-    print("Welcome to the Classic Game of Hangman!")
+    print("Welcome To The Classic Game Of Hangman!")
     while True:
         name = input("Enter Your Name: \n").upper()
         if name.isalpha():
@@ -25,7 +25,7 @@ def welcome():
             print("----------------------------------------------")
             return name
         else:
-            print("Please use only letters, try again ")
+            print("Please Use Only Letters, Try Again ")
 
 
 def get_word():
@@ -56,19 +56,19 @@ def play(secret_word):
     print(display_hangman(lives))
     print(f"SECRET WORD: {reveal}")
     print("\n")
-    print(f"You have {lives} lives")
+    print(f"You Have {lives} Lives")
     print("\n")
     while not gameWon and lives > 0:
-        guess = input("Guess a letter or word: \n").upper()
+        guess = input("Guess A Letter Or Word: \n").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
-                print(f"You already guessed the letter {guess}.")
+                print(f"You Already Guessed The Letter {guess}.")
             elif guess not in secret_word:
-                print(f"{guess} is not in the secret word.")
+                print(f"{guess} Is Not In The Secret Word.")
                 lives -= 1
                 guessed_letters.append(guess)
             else:
-                print(f"Good job, {guess} is in the secret word!")
+                print(f"Good Job, {guess} Is In The Secret Word!")
                 guessed_letters.append(guess)
                 word_as_list = list(reveal)
                 # find all indices where guess occurs in secret word
@@ -82,20 +82,20 @@ def play(secret_word):
                     gameWon = True
         elif len(guess) == len(secret_word) and guess.isalpha():
             if guess in guessed_words:
-                print(f"You already guessed that word, {guess}.")
+                print(f"You Already Guessed That Word, {guess}.")
             elif guess != secret_word:
-                print(f"{guess} is not the secret word.")
+                print(f"{guess} Is Not The Secret Word.")
                 lives -= 1
                 guessed_words.append(guess)
             else:
                 gameWon = True
                 reveal = secret_word
         else:
-            print("Not a valid guess. Please try again!")
+            print("Not A Valid Guess. Please Try Again!")
         print(display_hangman(lives))
         print(f"SECRET WORD: {reveal}")
         print("\n")
-        print(f"You have {lives}, lives left")
+        print(f"You Have {lives}, Lives Left")
         print("\n")
     if gameWon:
         print("WELL DONE, YOU ARE A CHAMPION!")
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     clear()
 
     # Types of categories
-    topics = {1: "Start Game", 2: "Continue to Play"}
+    topics = {1: "Start Game", 2: "Play Again"}
 
     # The GAME LOOP
     while True:
@@ -203,22 +203,22 @@ if __name__ == "__main__":
 
         # Handling the player category choice
         try:
-            choice = int(input("Enter your choice = \n"))
+            choice = int(input("Enter Your Choice = \n"))
         except ValueError:
             clear()
-            print("Wrong choice!!! Try again")
+            print("Invalid Choice!!! Try Again")
             continue
 
         # Sanity checks for input
         if choice > len(topics)+1:
             clear()
-            print("Not an Option!!! Try again.")
+            print("Not An Option!!! Try Again.")
             continue
 
         # The EXIT choice
         elif choice == len(topics)+1:
             print()
-            print("Thank you for playing!")
+            print("Thank You For Playing!")
             break
 
         # The topic chosen
@@ -228,6 +228,6 @@ if __name__ == "__main__":
             welcome()
             secret_word = get_word()
             play(secret_word)
-        if chosen_topic == "Continue to Play":
+        if chosen_topic == "Play Again":
             secret_word = get_word()
             play(secret_word)
